@@ -1,6 +1,6 @@
 import function
 
 
-print(set(function.listfilmAllocine()) ^ set(function.listfilmIMBD()))
+print(set(function.listfilmAllocine("indiana jones")) ^ set(function.listfilmIMBD("indiana jones")))
 
 

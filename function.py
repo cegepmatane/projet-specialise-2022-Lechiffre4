@@ -10,9 +10,8 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
     }
 
-def listfilmIMBD():
+def listfilmIMBD(film_name):
     IMBDList = []
-    film_name = input("entrez le nom d'un film : ")
     url = "https://www.imdb.com/find?q="+film_name+"&s=tt&ttype=ft&ref_=fn_ft"
     req = requests.get(url, headers)
     doc = BeautifulSoup(req.content,"html.parser")
@@ -24,9 +23,8 @@ def listfilmIMBD():
     #print(IMBDList)
     return IMBDList
 
-def listfilmAllocine():
+def listfilmAllocine(film_name):
     AllocineList = []
-    film_name = input("entrez le nom d'un film : ")
     url = "https://www.allocine.fr/rechercher/movie/?q="+film_name
     req = requests.get(url, headers)
     doc = BeautifulSoup(req.content,"html.parser")
