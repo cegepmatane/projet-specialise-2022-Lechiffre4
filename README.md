@@ -1,6 +1,7 @@
 projet-specialise-2022-Lechiffre4
 
 Nom du projet : Cinemates
+Developpeur : Sahel HAOUCHET
 
 Lien de description du projet:
 
