@@ -36,3 +36,25 @@ def listfilmAllocine(film_name):
         AllocineList.append(title_translated)
     #print(AllocineList)
     return AllocineList
+
+def InfoFilm():
+    listInfo = []
+    urls = ["https://www.imdb.com/title/tt0082971/?ref_=fn_al_tt_2", "https://www.allocine.fr/film/fichefilm_gen_cfilm=121.html"]
+    req1 = requests.get(urls[0], headers)
+    req2 = requests.get(urls[1], headers)
+    doc1 = BeautifulSoup(req1.content,"html.parser")
+    doc2 = BeautifulSoup(req2.content,"html.parser")
+
+    """Scrap Genre"""
+    genres = doc1.find("body").find_all("a",{"class":"GenresAndPlot__GenreChip-sc-cum89p-3 LKJMs ipc-chip ipc-chip--on-baseAlt"})
+    for i in range(0,len(genres)):
+        genres[i] = genres[i].getText()
+    
+    """Scrap note"""
+    notesIMDb = doc1.find("body").find_all("span",{"class":"AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV"})
+    notesIMDb = notesIMDb[0].getText()
+    notesAllociné = doc2.find("body").find_all("span",{"class":"AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV"})
+    notesIMDb = notesIMDb[0].getText()
+
+    return notesIMDb
+
