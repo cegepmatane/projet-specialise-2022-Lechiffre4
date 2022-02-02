@@ -39,22 +39,38 @@ def listfilmAllocine(film_name):
 
 def InfoFilm():
     listInfo = []
-    urls = ["https://www.imdb.com/title/tt0082971/?ref_=fn_al_tt_2", "https://www.allocine.fr/film/fichefilm_gen_cfilm=121.html"]
+    urls = ["https://www.imdb.com/title/tt0082971/?ref_=fn_al_tt_2", "https://www.senscritique.com/film/Les_Aventuriers_de_l_arche_perdue/439783"]
     req1 = requests.get(urls[0], headers)
     req2 = requests.get(urls[1], headers)
     doc1 = BeautifulSoup(req1.content,"html.parser")
     doc2 = BeautifulSoup(req2.content,"html.parser")
 
     """Scrap Genre"""
-    genres = doc1.find("body").find_all("a",{"class":"GenresAndPlot__GenreChip-sc-cum89p-3 LKJMs ipc-chip ipc-chip--on-baseAlt"})
-    for i in range(0,len(genres)):
-        genres[i] = genres[i].getText()
+
+    genresIMDb = doc1.find("body").find_all("a",{"class":"GenresAndPlot__GenreChip-sc-cum89p-3 LKJMs ipc-chip ipc-chip--on-baseAlt"})
+    for i in range(0,len(genresIMDb)):
+        genresIMDb[i] = genresIMDb[i].getText().lower()
+        genresIMDb[i] = GoogleTranslator(source='auto',target='en').translate(genresIMDb[i])
     
+    genresSens = doc2.find("body").find_all("span",{"itemprop":"genre"})
+    for i in range (0, len(genresSens)):
+        genresSens[i] = genresSens[i].getText().lower()
+        genresSens[i] = GoogleTranslator(source='auto',target='en').translate(genresSens[i])
+
+
+    genres = list(set().union(genresSens, genresIMDb))
+
+    
+
     """Scrap note"""
     notesIMDb = doc1.find("body").find_all("span",{"class":"AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV"})
     notesIMDb = notesIMDb[0].getText()
-    notesAllociné = doc2.find("body").find_all("span",{"class":"AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV"})
-    notesIMDb = notesIMDb[0].getText()
 
-    return notesIMDb
+
+    notesSens = doc2.find("body").find_all("span",{"itemprop":"ratingValue"})
+    notesSens = notesSens[0].getText()
+
+    notes = [notesIMDb, notesSens]
+
+    return genres, notes
 
