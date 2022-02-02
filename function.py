@@ -70,7 +70,9 @@ def InfoFilm():
     notesSens = doc2.find("body").find_all("span",{"itemprop":"ratingValue"})
     notesSens = notesSens[0].getText()
 
-    notes = [notesIMDb, notesSens]
+    notes = [float(notesIMDb), float(notesSens)]
+    moyenneG = sum(notes)/len(notes)
 
-    return genres, notes
+    
+    return genres, notes, moyenneG
 
