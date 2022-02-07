@@ -30,7 +30,12 @@ Cinemates
 </div>
 
 <script>
-
+  $('#searchform').keypress(function (e) {                                       
+       if (e.which == 13) {
+            e.preventDefault();
+            SearchFilm()   
+       }
+  });
 
   function SearchFilm(){
     $.ajax({
