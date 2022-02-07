@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 354 354" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Plan-de-travail1" serif:id="Plan de travail1" transform="matrix(0.641304,0,0,0.653137,0,0)">
+        <rect x="0" y="0" width="552" height="542" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="0" y="0" width="552" height="542"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g id="logo" transform="matrix(1.55932,0,0,1.53107,-149.695,-111.768)">
+                <g transform="matrix(1,0,0,1,0,-1)">
+                    <path d="M450,74L96,74L96,428L450,428L450,74ZM442,83L103,83L103,421L442,421L442,83Z" style="fill:rgb(17,17,17);"/>
+                </g>
+                <path id="C" d="M348,133L338,176L320,176C311.536,164.792 301.332,159.848 290,160C265.167,160.333 253.925,182.753 249,208L261,208C259.257,226.186 268.741,236.916 279,237C300.502,237.176 323,222 323,222L339,222L330,263C301.822,278.182 260.833,282.167 241,273C221.167,263.833 207.369,247.194 211,208L200,208C200,208 204.942,145.36 264,125C311.87,108.497 346.735,133.635 348,133Z" style="fill:rgb(247,181,0);"/>
+                <g transform="matrix(1,0,0,1,-7.5,6)">
+                    <g>
+                        <g transform="matrix(1,0,0,1,116,387.667)">
+                            <text x="0px" y="0px" style="font-family:'ZuumeCut-SemiBold', 'Zuume Cut';font-weight:600;font-size:106.667px;">C</text>
+                        </g>
+                        <g transform="matrix(1,0,0,1,155.467,387.667)">
+                            <text x="0px" y="0px" style="font-family:'ZuumeCut-SemiBold', 'Zuume Cut';font-weight:600;font-size:106.667px;">INEMA<tspan x="193.067px " y="0px ">T</tspan>ES</text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
