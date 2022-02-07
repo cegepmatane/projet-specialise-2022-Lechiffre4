@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from . import function
 
 def index(request):
-    return render(request,"home/home.html")
+    films = function.listfilmIMBD("indianajones")
+    test = "hello world"
+    return render(request,"home/home.html", {"films": films} )
 

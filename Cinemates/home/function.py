@@ -20,7 +20,7 @@ def listfilmIMBD(film_name):
     for i in parent:
         IMBDList.append(i.find("a").getText())
 
-    #print(IMBDList)
+    films_dict = dict(list(enumerate(IMBDList)))
     return IMBDList
 
 def listfilmAllocine(film_name):
