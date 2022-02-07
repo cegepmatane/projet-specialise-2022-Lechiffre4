@@ -30,6 +30,8 @@ Cinemates
 </div>
 
 <script>
+
+
   function SearchFilm(){
     $.ajax({
       type:'POST',
@@ -41,13 +43,15 @@ Cinemates
         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
       },
       success: function (data) {
+        $('#FilmList').replaceWith(data);
       }
     })
   }
-    
 
 
 </script>
+
+
 {% endblock %}
 
 
