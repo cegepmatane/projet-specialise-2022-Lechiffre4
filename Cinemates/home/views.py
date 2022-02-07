@@ -14,6 +14,7 @@ def search(request):
        Searchform(usersearch_retreived)
        films = function.listfilmIMBD(usersearch_retreived)
        page = render(request, "home/Listfilm_model.html", {"films": films})
+       
     return page
 
 
