@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from matplotlib.font_manager import json_dump
 from . import function
 from .form import Searchform
 
@@ -9,12 +10,18 @@ def index(request):
 
 def search(request):
     if request.method == 'POST':
-       usersearch_retreived = request.POST.get('search')
-
+       usersearch_retreived = request.POST.get('search', "")
        Searchform(usersearch_retreived)
-    films = function.listfilmIMBD(usersearch_retreived)
-    print(films)
-    return render(request,"home/home.html", {"films": films} )
+    return 
+
+def displayfilms(request,user_input):
+    films = function.listfilmIMBD(user_input)
+    return render(request,"home/home.html",{"films": films})
+
+
+    
+
+
 
 
 

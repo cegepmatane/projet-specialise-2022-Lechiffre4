@@ -31,7 +31,6 @@ Cinemates
 
 <script>
   function SearchFilm(){
-    $('.ajaxProgress').show();
     $.ajax({
       type:'POST',
       url:"search/",
@@ -41,8 +40,7 @@ Cinemates
         search: $("#searchbar").val(),
         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
       },
-      sucess:function(){
-          console.log("sended")
+      success: function (data) {
       }
     })
   }
