@@ -76,3 +76,19 @@ def InfoFilm():
     
     return genres, notes, moyenneG
 
+
+
+
+
+
+def SortFilmOutput(usersearch, listfilms):
+    filmlistdisplayed = []
+    usersearch = usersearch.lower()
+    for i in listfilms:
+        lowerI = i.lower()
+        if (lowerI.find(usersearch) != -1):
+            filmlistdisplayed.append(i)
+        
+    return filmlistdisplayed
+
+

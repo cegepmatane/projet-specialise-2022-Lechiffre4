@@ -12,7 +12,9 @@ def search(request):
     if request.method == 'POST':
        usersearch_retreived = request.POST.get('search', "")
        Searchform(usersearch_retreived)
-       films = function.listfilmIMBD(usersearch_retreived)
+       films = function.listfilmIMBD(usersearch_retreived)  
+       films = function.SortFilmOutput(usersearch_retreived, films)
+
        page = render(request, "home/Listfilm_model.html", {"films": films})
        
     return page
