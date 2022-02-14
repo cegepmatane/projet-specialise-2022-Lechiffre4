@@ -14,10 +14,20 @@ def search(request):
        Searchform(usersearch_retreived)
        films = function.listfilmIMBD(usersearch_retreived)  
        films = function.SortFilmOutput(usersearch_retreived, films)
+       
+       films_links = []
+       for i in films:
+           film_transform = i.lower()
+           film_transform = film_transform.replace(" ", "_")
+           film_transform = film_transform.replace(":", "_")
+           films_links.append(film_transform)
+        
+       zippedlist = zip(films, films_links)
 
-       page = render(request, "home/Listfilm_model.html", {"films": films})
+       page = render(request, "home/Listfilm_model.html", {"films": zippedlist})
        
     return page
+
 
 
     
