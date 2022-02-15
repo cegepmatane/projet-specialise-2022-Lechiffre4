@@ -19,6 +19,6 @@ Lien Grille Comparaison :
 
 Technologie utilisés : 
 
-    -   Python Web Flask
+    -   Python Web Django
     -   BeautifulSoup 
     -   Ajax
