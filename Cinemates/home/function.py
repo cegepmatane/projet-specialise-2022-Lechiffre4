@@ -10,7 +10,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
     }
 
-def listfilmIMBD(film_name):
+def getlistfilmIMBD(film_name):
     IMBDList = []
     url = "https://www.imdb.com/find?q="+film_name+"&s=tt&ttype=ft&ref_=fn_ft"
     req = requests.get(url, headers)
@@ -29,7 +29,7 @@ def listfilmIMBD(film_name):
 
 
 
-def listfilmAllocine(film_name):
+def getlistfilmAllocine(film_name):
     AllocineList = []
     url = "https://www.allocine.fr/rechercher/movie/?q="+film_name
     req = requests.get(url, headers)
@@ -43,7 +43,7 @@ def listfilmAllocine(film_name):
     #print(AllocineList)
     return AllocineList
 
-def InfoFilm():
+def getInfoFilm():
     listInfo = []
     urls = ["https://www.imdb.com/title/tt0082971/?ref_=fn_al_tt_2", "https://www.senscritique.com/film/Les_Aventuriers_de_l_arche_perdue/439783"]
     req1 = requests.get(urls[0], headers)
@@ -87,7 +87,7 @@ def InfoFilm():
 
 
 
-def SortFilmOutput(usersearch, listfilms):
+def sortFilmOutput(usersearch, listfilms):
     filmlistdisplayed = []
     usersearch = usersearch.lower()
     for i in listfilms:

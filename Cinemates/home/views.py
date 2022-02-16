@@ -12,8 +12,8 @@ def search(request):
     if request.method == 'POST':
        usersearch_retreived = request.POST.get('search', "")
        Searchform(usersearch_retreived)
-       films = function.listfilmIMBD(usersearch_retreived)  
-       films = function.SortFilmOutput(usersearch_retreived, films)
+       films = function.getlistfilmIMBD(usersearch_retreived)  
+       films = function.sortFilmOutput(usersearch_retreived, films)
        
        films_links = []
        for i in films:
