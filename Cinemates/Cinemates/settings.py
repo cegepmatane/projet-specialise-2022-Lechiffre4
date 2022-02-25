@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'findforme.apps.FindformeConfig',
+    'about.apps.AboutConfig',
 ]
 
 MIDDLEWARE = [

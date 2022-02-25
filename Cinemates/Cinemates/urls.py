@@ -21,6 +21,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('findforme/', include('findforme.urls')),
     #path('/film', include('home.urls')),
-    #path('/about', include('home.urls'))
+    path('about/', include('about.urls'))
 
 ]
