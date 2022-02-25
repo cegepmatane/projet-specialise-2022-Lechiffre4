@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'findforme.apps.FindformeConfig',
     'about.apps.AboutConfig',
+    'film.apps.FilmConfig',
 ]
 
 MIDDLEWARE = [

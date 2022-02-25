@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('findforme/', include('findforme.urls')),
-    #path('/film', include('home.urls')),
+    path('film/', include('film.urls')),
     path('about/', include('about.urls'))
 
 ]

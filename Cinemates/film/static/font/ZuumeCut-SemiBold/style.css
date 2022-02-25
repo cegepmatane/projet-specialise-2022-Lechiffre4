@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Zuume';
+    src: local('Zuume Cut Semi Bold'), local('Zuume-Cut-Semi-Bold'),
+        url('ZuumeCut-SemiBold.woff2') format('woff2'),
+        url('ZuumeCut-SemiBold.woff') format('woff'),
+        url('ZuumeCut-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
