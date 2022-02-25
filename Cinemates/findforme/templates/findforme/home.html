@@ -1,0 +1,73 @@
+{% extends 'findforme/base.html' %}
+
+{% block title %}
+Cinemates
+{% endblock %}
+
+{% block links %}
+{% endblock %}
+
+{% block body %}
+<div class ="container" style="margin-top: 200px;">
+    <h1 class="text-center">Randomize your perfect film</h1>
+    
+    <form method="POST" class="d-flex align-content-center w-50 m-auto mb-5" id="searchform">
+      {% csrf_token %}
+      {{ form_key.as_p }}
+      <select name="Caterories" id="categories">
+        <option value="Action">Action</option>
+        <option value="Aventure">Aventure</option>
+        <option value="SF">Science fiction</option>
+        <option value="Romantique">Romantique</option>
+      </select>
+
+      <select name="Rates" id="Rates">
+        <option value="9">>9</option>
+        <option value="8">>8</option>
+        <option value="7">>7</option>
+        <option value="6">>6</option>
+      </select>
+    </form>
+    
+  </div>
+  <div class="d-flex-center text-center mt-5">
+      <ul class="list-unstyled" id="FilmList">
+        {% for film,film_link in films %}
+          <li><a href="/{{film_link}}">{{film}}</a></li>
+        {% endfor %}
+          
+      </ul>
+  </div>
+</div>
+
+<script>
+  $('#searchform').keypress(function (e) {                                       
+       if (e.which == 13) {
+            e.preventDefault();
+            SearchFilm()   
+       }
+  });
+
+  function SearchFilm(){
+    $.ajax({
+      type:'POST',
+      url:"search/",
+      dataType: "html",
+      async: true,
+      data:{
+        search: $("#searchbar").val(),
+        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+      },
+      success: function (data) {
+        $('#FilmList').replaceWith(data);
+      }
+    })
+  }
+
+
+</script>
+
+
+{% endblock %}
+
+
