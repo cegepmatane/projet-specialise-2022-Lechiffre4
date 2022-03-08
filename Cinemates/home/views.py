@@ -17,10 +17,8 @@ def search(request):
        
        films_links = []
        for i in films:
-           film_transform = i.lower()
-           film_transform = film_transform.replace(" ", "_")
-           film_transform = film_transform.replace(":", "_")
-           films_links.append(film_transform)
+           film_id = function.getfilmID(i)
+           films_links.append(film_id)
         
        zippedlist = zip(films, films_links)
 

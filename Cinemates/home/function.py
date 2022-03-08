@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
 from deep_translator import GoogleTranslator
+from imdb import Cinemagoer
+
+ia = Cinemagoer()
 
 headers = {
     'Access-Control-Allow-Origin': '*',
@@ -23,9 +26,10 @@ def getlistfilmIMBD(film_name):
     return IMBDList
 
 
-
-
-
+def getfilmID(film_name):
+    film_id = ia.search_movie(film_name)
+    film_id = film_id[0].movieID
+    return film_id;
 
 
 

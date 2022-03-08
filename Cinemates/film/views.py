@@ -7,5 +7,6 @@ def film(request):
     return render(request,"film/home.html")
 
 def film_id(request,id):
-    Film_name = function.GetInfo(id)
-    return render(request,"film/home.html",{"film_name":Film_name})
+    film_infos = function.GetInfo(id)
+    print(film_infos)
+    return render(request,"film/home.html",film_infos)
