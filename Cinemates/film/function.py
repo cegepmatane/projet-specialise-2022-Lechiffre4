@@ -12,55 +12,89 @@ def url_clean(url):
 
 
 def GetInfo(id):
-    film = ia.get_movie(id)
+    
+        film = ia.get_movie(id)
 
-    #Title
-    title = film["title"]
+        #Title
+        try:
+            title = film["title"]
+        except KeyError as e:
+            print(e)
+            title = "null"
 
-    #Image
-    image = film['cover']
-    image = url_clean(image)
+        #Image
+        try:
+            image = film['cover']
+            image = url_clean(image)
+        except KeyError as e:
+            print(e)
+            image = "https://thumbs.dreamstime.com/b/aucune-photo-ou-ic%C3%B4ne-d-image-vide-chargement-images-marque-manquante-non-disponible-%C3%A0-venir-silhouette-nature-simple-dans-l-215973362.jpg"
 
-    #directors
-    raw_authors = film["director"]
-    authors = []
-    for author in raw_authors:
-        authors.append(author["name"])
+        #directors
+        try:
+            raw_authors = film["director"]
+            authors = []
+            for author in raw_authors:
+                authors.append(author["name"])
+        except KeyError as e:
+            print(e)
+            authors = ["null"]
 
-    #Writer
-    raw_writers = film["writer"]
-    writers = []
-    for writer in raw_writers:
-        writers.append(writer["name"])
+        #Writer
+        try:
+            raw_writers = film["writer"]
+            writers = []
+            for writer in raw_writers:
+                writers.append(writer["name"])
+        except KeyError as e:
+            print(e)
+            writers = ["null"]
 
-    #cast
-    raw_cast = film["cast"]
-    actors = []
-    for actor in raw_cast:
-        actors.append(actor["name"])
+        #cast
+        try:
+            raw_cast = film["cast"]
+            actors = []
+            for actor in raw_cast:
+                actors.append(actor["name"])
+        except KeyError as e:
+            print(e)
+            actors = ["null"]
 
-    #rating
-    rate = film["rating"]
+        #rating
+        try:
+            rate = film["rating"]
+        except KeyError as e:
+            print(e)
+            rate = "null"
 
-    #Genre
-    genre = film["genres"]
+        #Genre
+        try:
+            genre = film["genres"]
+        except KeyError as e:
+            print(e)
+            gene = "null"
 
-    #Plot
-    plot = film["plot"]
+        #Plot
+        try:
+            plot = film["plot"]
+        except KeyError as e:
+            print(e)
+            plot = "null"
 
-    #classify information in a dict
-    infos = {
-        "title": title,
-        "image": image,
-        "author": authors,
-        "rate": rate,
-        "genre": genre,
-        "writer": writers,
-        "cast": actors,
-        "plot": plot
-    }
-    return infos
-        
+        #classify information in a dict
+        infos = {
+            "title": title,
+            "image": image,
+            "author": authors,
+            "rate": rate,
+            "genre": genre,
+            "writer": writers,
+            "cast": actors,
+            "plot": plot
+        }
+        return infos
+
+GetInfo(6263850)   
 
 
 
