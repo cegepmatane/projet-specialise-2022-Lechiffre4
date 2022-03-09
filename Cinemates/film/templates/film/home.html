@@ -10,7 +10,24 @@ Cinemates
 {% block body %}
 <div class ="container" style="margin-top: 200px;">
     <h1 class="text-center">{{title}}</h1>  
-    <img src="{{image}}" class="film_cover"/>
+    <div class = "container">
+        <div class="row">
+            <div class="col-sm">
+                <img src="{{image}}" class="img-fluid"/>
+            </div>
+            <div class="col-sm">
+                <h2>Directors : {{author}}</h2>
+                <h2>Writers : {{writer}}</h2>
+                <h2>Cast : {{cast}}</h2>
+                </br>
+                <h2>Genre : {{genre}}</h2>
+                <h2>Rate : {{rate}}/10</h2>
+                
+            </div>
+            <p>Synopsis : {{plot}}</p>
+        </div>
+    </div>
+
 </div>
 
 </div>

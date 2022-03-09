@@ -1,6 +1,7 @@
 from imdb import Cinemagoer
 import os
 
+
 ia = Cinemagoer()
 
 def url_clean(url):
@@ -34,31 +35,53 @@ def GetInfo(id):
         try:
             raw_authors = film["director"]
             authors = []
+            authors_str = ""
             for author in raw_authors:
                 authors.append(author["name"])
+            
+            for str in authors:
+                authors_str += str
+                if (str != authors[len(authors)-1]):
+                    authors_str += " / "
+
         except KeyError as e:
             print(e)
-            authors = ["null"]
+            authors_str = "null"
 
         #Writer
         try:
             raw_writers = film["writer"]
             writers = []
+            writers_str = ""
             for writer in raw_writers:
                 writers.append(writer["name"])
+
+            for str in writers:
+                writers_str += str
+                if (str != writers[len(writers)-1]):
+                    writers_str += " / "
+
         except KeyError as e:
             print(e)
-            writers = ["null"]
+            writers_str = "null"
 
         #cast
         try:
             raw_cast = film["cast"]
             actors = []
+            actors_str = ""
             for actor in raw_cast:
                 actors.append(actor["name"])
+
+            actors = actors[:5]
+            for str in actors:
+                actors_str += str
+                if (str != actors[len(actors)-1]):
+                    actors_str += " / "
+
         except KeyError as e:
             print(e)
-            actors = ["null"]
+            actors_str = "null"
 
         #rating
         try:
@@ -70,31 +93,40 @@ def GetInfo(id):
         #Genre
         try:
             genre = film["genres"]
+            genre_str = ""
+            for str in genre:
+                genre_str += str
+                if (str != genre[len(genre)-1]):
+                    genre_str += " / "
+                    
         except KeyError as e:
             print(e)
-            gene = "null"
+            genre_str = "null"
 
         #Plot
         try:
             plot = film["plot"]
+            plot_str = ""
+            for str in plot:
+                plot_str += str
         except KeyError as e:
             print(e)
-            plot = "null"
+            plot_str = "null"
 
         #classify information in a dict
         infos = {
             "title": title,
             "image": image,
-            "author": authors,
+            "author": authors_str,
             "rate": rate,
-            "genre": genre,
-            "writer": writers,
-            "cast": actors,
-            "plot": plot
+            "genre": genre_str,
+            "writer": writers_str,
+            "cast": actors_str,
+            "plot": plot_str
         }
         return infos
 
-GetInfo(6263850)   
+#GetInfo(6263850)   
 
 
 
