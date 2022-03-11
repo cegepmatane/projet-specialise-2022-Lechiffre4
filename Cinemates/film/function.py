@@ -1,5 +1,17 @@
 from imdb import Cinemagoer
 import os
+from bs4 import BeautifulSoup
+import requests
+
+ia = Cinemagoer()
+
+headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '3600',
+    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
+    }
 
 
 ia = Cinemagoer()
@@ -11,6 +23,20 @@ def url_clean(url):
     url = s2 + '@' * i + ext
     return url
 
+
+
+def getComment(film_id):
+    bestComment = []
+    url = "https://www.imdb.com/title/tt"+str(film_id)+"/?ref_=fn_al_tt_1"
+    req = requests.get(url, headers)
+    doc = BeautifulSoup(req.content,"html.parser")
+    parent = doc.find("body").find("div",{"class":"styles__MetaDataContainer-sc-12uhu9s-0 cgqHBf"}).find_all("div",{"class":"ipc-html-content ipc-html-content--base"})
+
+    for i in parent:
+        bestComment.append(i.getText())
+
+    bestComment = bestComment[0]
+    return bestComment
 
 def GetInfo(id):
     
@@ -39,9 +65,9 @@ def GetInfo(id):
             for author in raw_authors:
                 authors.append(author["name"])
             
-            for str in authors:
-                authors_str += str
-                if (str != authors[len(authors)-1]):
+            for i in authors:
+                authors_str += i
+                if (i != authors[len(authors)-1]):
                     authors_str += " / "
 
         except KeyError as e:
@@ -56,9 +82,9 @@ def GetInfo(id):
             for writer in raw_writers:
                 writers.append(writer["name"])
 
-            for str in writers:
-                writers_str += str
-                if (str != writers[len(writers)-1]):
+            for i in writers:
+                writers_str += i
+                if (i != writers[len(writers)-1]):
                     writers_str += " / "
 
         except KeyError as e:
@@ -74,9 +100,9 @@ def GetInfo(id):
                 actors.append(actor["name"])
 
             actors = actors[:5]
-            for str in actors:
-                actors_str += str
-                if (str != actors[len(actors)-1]):
+            for i in actors:
+                actors_str += i
+                if (i != actors[len(actors)-1]):
                     actors_str += " / "
 
         except KeyError as e:
@@ -94,9 +120,9 @@ def GetInfo(id):
         try:
             genre = film["genres"]
             genre_str = ""
-            for str in genre:
-                genre_str += str
-                if (str != genre[len(genre)-1]):
+            for i in genre:
+                genre_str += i
+                if (i != genre[len(genre)-1]):
                     genre_str += " / "
                     
         except KeyError as e:
@@ -107,11 +133,14 @@ def GetInfo(id):
         try:
             plot = film["plot"]
             plot_str = ""
-            for str in plot:
-                plot_str += str
+            for i in plot:
+                plot_str += i
         except KeyError as e:
             print(e)
             plot_str = "null"
+
+        bestComment = getComment(str(id))
+
 
         #classify information in a dict
         infos = {
@@ -122,11 +151,7 @@ def GetInfo(id):
             "genre": genre_str,
             "writer": writers_str,
             "cast": actors_str,
-            "plot": plot_str
+            "plot": plot_str,
+            "comment": bestComment
         }
         return infos
-
-#GetInfo(6263850)   
-
-
-
