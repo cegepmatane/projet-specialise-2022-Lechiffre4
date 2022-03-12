@@ -139,7 +139,10 @@ def GetInfo(id):
             print(e)
             plot_str = "null"
 
-        bestComment = getComment(str(id))
+        try : 
+            bestComment = getComment(str(id))
+        except :
+            bestComment = "No Comment"
 
 
         #classify information in a dict

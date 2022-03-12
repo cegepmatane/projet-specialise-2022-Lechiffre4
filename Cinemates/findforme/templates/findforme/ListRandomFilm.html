@@ -1,0 +1,5 @@
+<ul class="list-unstyled" id="FilmList">
+    {% for films,films_link in films %}
+        <li class="collection-item"><a href="/film/{{films_link}}">{{films}}</a></li>
+    {% endfor %}
+</ul>
