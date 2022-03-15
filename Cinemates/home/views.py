@@ -19,6 +19,7 @@ def search(request):
        for i in films:
            film_id = function.getfilmID(i)
            films_links.append(film_id)
+           
         
        zippedlist = zip(films, films_links)
 
