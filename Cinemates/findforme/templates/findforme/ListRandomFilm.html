@@ -1,5 +1,12 @@
-<ul class="list-unstyled" id="FilmList">
-    {% for films,films_link in films %}
-        <li class="collection-item"><a href="/film/{{films_link}}">{{films}}</a></li>
+<div class="d-flex flex-wrap justify-content-around" id="FilmList">
+    {% for film,film_link in films %}
+        <a href="/film/{{film_link}}">
+            <div class="card text-white bg-primary mb-3 mx-5" style="width: 20rem;">
+                <div class="card-body">
+                  <h4 class="card-title">{{film}}</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </a>
     {% endfor %}
-</ul>
+</div>
