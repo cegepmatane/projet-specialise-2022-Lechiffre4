@@ -1,9 +1,28 @@
 from imdb import Cinemagoer
 import random
+import os
 
 
 ia = Cinemagoer()
 
+def url_clean(url):
+    base, ext = os.path.splitext(url)
+    i = url.count('@')
+    s2 = url.split('@')[0]
+    url = s2 + '@' * i + ext
+    return url
+
+
+def getPic(film_id):
+    #Image
+    film = ia.get_movie(film_id)
+    try:
+        image = film['cover']
+        image = url_clean(image)
+        return image
+    except KeyError as e:
+        image = "https://thumbs.dreamstime.com/b/aucune-photo-ou-ic%C3%B4ne-d-image-vide-chargement-images-marque-manquante-non-disponible-%C3%A0-venir-silhouette-nature-simple-dans-l-215973362.jpg"
+        return image
 
 def getRandomFilm(category):
     list_films = []

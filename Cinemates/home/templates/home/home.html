@@ -16,13 +16,14 @@ Cinemates
       {{ form_key.as_p }}
       <input class="form-control col-xs-6 mx-2" type="text" placeholder="Search" id="searchbar" name="searchbar">
       <button id="searchbutton" onclick ="SearchFilm()" class="btn btn-primary col-xs-6" type="button">Search</button>
+      
     </form>
     
   </div>
-  <div class="d-flex-center text-center mt-5">
+  <div class="d-flex-center text-center mt-5 ">
     <div class="d-flex flex-wrap justify-content-around" id="FilmList">
         {% for film,film_link in films %}
-          <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+          <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
             <div class="card-header">Header</div>
             <div class="card-body">
               <h4 class="card-title">Primary card title</h4>
@@ -33,6 +34,8 @@ Cinemates
     </div>      
   </div>
 </div>
+
+<div class="modal"><!-- Place at bottom of page --></div>
 
 <script>
   $('#searchform').keypress(function (e) {                                       
@@ -58,8 +61,17 @@ Cinemates
     })
   }
 
+  $body = $("body");
+
+  $(document).on({
+      ajaxStart: function() { $body.addClass("loading");    },
+       ajaxStop: function() { $body.removeClass("loading"); }    
+  });
+
 
 </script>
+
+
 
 
 {% endblock %}

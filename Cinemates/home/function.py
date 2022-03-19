@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from deep_translator import GoogleTranslator
 from imdb import Cinemagoer
+import os
 
 ia = Cinemagoer()
 
@@ -12,6 +13,13 @@ headers = {
     'Access-Control-Max-Age': '3600',
     'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
     }
+
+def url_clean(url):
+    base, ext = os.path.splitext(url)
+    i = url.count('@')
+    s2 = url.split('@')[0]
+    url = s2 + '@' * i + ext
+    return url
 
 def getlistfilmIMBD(film_name):
     IMBDList = []
@@ -31,11 +39,21 @@ def getfilmID(film_name):
     film_id = film_id[0].movieID
     return film_id;
 
-
+def getPic(film_id):
+    #Image
+    film = ia.get_movie(film_id)
+    try:
+        image = film['cover']
+        image = url_clean(image)
+        return image
+    except KeyError as e:
+        image = "https://thumbs.dreamstime.com/b/aucune-photo-ou-ic%C3%B4ne-d-image-vide-chargement-images-marque-manquante-non-disponible-%C3%A0-venir-silhouette-nature-simple-dans-l-215973362.jpg"
+        return image
 
 def getlistfilmAllocine(film_name):
     AllocineList = []
     url = "https://www.allocine.fr/rechercher/movie/?q="+film_name
+    print(url)
     req = requests.get(url, headers)
     doc = BeautifulSoup(req.content,"html.parser")
     parent = doc.find("body").find_all("h2")
