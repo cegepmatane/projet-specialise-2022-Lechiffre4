@@ -35,3 +35,8 @@ body.loading .modal {
 body.loading .modal {
     display: block;
 }
+
+.imgThumbnail
+{
+    width : 100%;
+}

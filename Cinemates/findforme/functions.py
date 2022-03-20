@@ -24,27 +24,24 @@ def getPic(film_id):
         image = "https://thumbs.dreamstime.com/b/aucune-photo-ou-ic%C3%B4ne-d-image-vide-chargement-images-marque-manquante-non-disponible-%C3%A0-venir-silhouette-nature-simple-dans-l-215973362.jpg"
         return image
 
-def getRandomFilm(category):
+def getRandomFilm(category, number):
     list_films = []
     films = ia.search_keyword(category);
     films = ia.get_keyword(films[random.randint(0,len(films))]);
 
-
-    for i in range(0,3):
+    for i in range(0,int(number)):
         result = None
-
-
         while result is None :
             try :
                 random_index = random.randint(0,len(films))
                 film = films[random_index]['title']
-
+                print(film)
                 list_films.append(film)
                 result = 0
             except:
                 pass
     
-
+    
     for film in list_films:
         if list_films.count(film) > 1:
             getRandomFilm()

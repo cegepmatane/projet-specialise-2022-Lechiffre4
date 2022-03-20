@@ -14,8 +14,7 @@ Cinemates
     <form method="POST" class="d-flex flex-wrap justify-content-around" id="searchform">
       {% csrf_token %}
       {{ form_key.as_p }}
-      <select name="Categories" id="categories" class="d-flex justify-content-around">
-        <option value="null">Category</option>
+      <select name="Categories" id="categories" class="d-flex justify-content-around" required>
         <option value="Comedy">Comedy</option>
         <option value="Sci-fi">Sci-fi</option>
         <option value="Horror">Horror</option>
@@ -31,8 +30,7 @@ Cinemates
         <option value="Superhero">Superhero</option>
       </select>
 
-      <!--<select>
-        <option value="null">Rates</option>
+      <select required>
         <option value="9">>9</option>
         <option value="8">>8</option>
         <option value="7">>7</option>
@@ -44,20 +42,14 @@ Cinemates
         <option value="1">>1</option>
       </select>
 
-      <select>
-        <option value="null">Nombre</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
+      <select name="Number" id="number" class="d-flex justify-content-around" required>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
         
-      </select>-->
+      </select>
       <button id="searchbutton" onclick ="SearchFilm()" class="btn btn-primary col-xs-6" type="button">Search</button>
     </form>
     
@@ -95,6 +87,7 @@ Cinemates
       async: true,
       data:{
         category: $("#categories").val(),
+        number : $("#number").val(),
         csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
       },
       success: function (data) {
