@@ -47,7 +47,7 @@ def GetInfo(id):
             title = film["title"]
         except KeyError as e:
             print(e)
-            title = "null"
+            title = "No title found"
 
         #Image
         try:
@@ -72,7 +72,7 @@ def GetInfo(id):
 
         except KeyError as e:
             print(e)
-            authors_str = "null"
+            authors_str = "No directors found"
 
         #Writer
         try:
@@ -89,7 +89,7 @@ def GetInfo(id):
 
         except KeyError as e:
             print(e)
-            writers_str = "null"
+            writers_str = "No writers found"
 
         #cast
         try:
@@ -107,14 +107,14 @@ def GetInfo(id):
 
         except KeyError as e:
             print(e)
-            actors_str = "null"
+            actors_str = "No actors found"
 
         #rating
         try:
             rate = film["rating"]
         except KeyError as e:
             print(e)
-            rate = "null"
+            rate = "No rating found"
 
         #Genre
         try:
@@ -127,7 +127,7 @@ def GetInfo(id):
                     
         except KeyError as e:
             print(e)
-            genre_str = "null"
+            genre_str = "No categories found"
 
         #Plot
         try:
@@ -137,12 +137,12 @@ def GetInfo(id):
                 plot_str += i
         except KeyError as e:
             print(e)
-            plot_str = "null"
+            plot_str = "No synopsis found"
 
         try : 
             bestComment = getComment(str(id))
         except :
-            bestComment = "No Comment"
+            bestComment = "No comments found"
 
 
         #classify information in a dict
