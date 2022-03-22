@@ -2,6 +2,30 @@ from imdb import Cinemagoer
 import os
 from bs4 import BeautifulSoup
 import requests
+import pyrebase
+from decouple import config
+
+
+firebaseConfig = {
+  "apiKey": config("apiKey"),
+  "authDomain": config("authDomain"),
+  "databaseURL": config("databaseURL"),
+  "projectId": config("projectId"),
+  "storageBucket": config("storageBucket"),
+  "messagingSenderId": config("messagingSenderId"),
+  "appId": config("appId"),
+  "measurementId": config("measurementId")
+}
+
+firebase = pyrebase.initialize_app(firebaseConfig)
+db = firebase.database()
+
+#Test Push data 
+data = {
+    "film": "indiana jones",
+    "genre": "aventure / action"
+    }
+db.push(data)
 
 ia = Cinemagoer()
 
