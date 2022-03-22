@@ -3,6 +3,7 @@ import requests
 from deep_translator import GoogleTranslator
 from imdb import Cinemagoer
 import os
+import FireBaseBDD
 
 ia = Cinemagoer()
 
