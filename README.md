@@ -26,3 +26,12 @@ Technologies utilisées :
     -   Python Web Django
     -   BeautifulSoup 
     -   Ajax
+
+
+###Iteration 3 
+lien vers la page agrégateur :
+https://www.netvibes.com/dashboard/99794916?#News
+
+photos : 
+<img src="./Doc/agrégateur_News.jpg">
+<img src="./Doc/agrégateur_technique.jpg">

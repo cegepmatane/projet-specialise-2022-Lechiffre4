@@ -41,6 +41,7 @@ def search(request):
 
         page = render(request, "home/Listfilm_model.html", {"films": zippedlist})
        
+       
     return page
 
 
