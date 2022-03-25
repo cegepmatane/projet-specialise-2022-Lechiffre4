@@ -35,3 +35,14 @@ https://www.netvibes.com/dashboard/99794916?#News
 photos : 
 <img src="./Doc/agrégateur_News.jpg">
 <img src="./Doc/agrégateur_technique.jpg">
+
+
+Automatisation Web avec Zapier : 
+L'automatisation m'envoie automatiquement un mail quand l'un des outils que j'utilise poste un nouveau tweet.
+
+photo des automatisations : 
+<img src="./Doc/Zaps.jpg">
+
+photo des mails reçu : 
+<img src="./Doc/newsletters.jpg">
+
