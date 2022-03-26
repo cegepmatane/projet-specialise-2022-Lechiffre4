@@ -26,6 +26,12 @@ def getPic(film_id):
 
 def getRandomFilm(category, number):
     list_films = []
+    list_category = ["Comedy","Sci-fi","Horror","Romance","Action","Thiller","Drama","Mystery", "Crime", "Animation", "Adventure", "Fantasy", "Superhero"]
+    print(category)
+    if category == "Random":
+        category = random.choice(list_category)
+        print(category)
+
     films = ia.search_keyword(category);
     films = ia.get_keyword(films[random.randint(0,len(films))]);
 
@@ -34,8 +40,7 @@ def getRandomFilm(category, number):
         while result is None :
             try :
                 random_index = random.randint(0,len(films))
-                film = films[random_index]['title']
-                print(film)
+                film = films[random_index]["title"]
                 list_films.append(film)
                 result = 0
             except:

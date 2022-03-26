@@ -23,7 +23,6 @@ def addFilm(jsonFilmInfo):
 
 def searchFilm(film_id):
     films = db.child("Films").get()
-    print(films.val())
     if films.val() != None:
         for film in films.each():
             if film.val()["id"] == film_id :
@@ -57,7 +56,3 @@ def searchResearch(user_research):
             films_links.append(film.val()["film_id"])
             films_pics.append(film.val()["film_pic"])
         return films_names,films_links,films_pics
-
-
-
-print(searchResearch("deadpool")[0])
