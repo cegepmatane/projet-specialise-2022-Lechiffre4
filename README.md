@@ -46,6 +46,9 @@ photo des automatisations :
 photo des mails reçu : 
 <img src="./Doc/newsletters.jpg">
 
-###Vidéo explicative du projet
-[<img src="./Doc/logo_semi_transparent.png" width="50%">](https://youtu.be/g8iLMkFbXfE "Now in Android: 55")
+### Vidéo explicative du projet :
+
+Lien : https://youtu.be/g8iLMkFbXfE
+
+[<img src="./Doc/logo_semi_transparent.png" width="10%">](https://youtu.be/g8iLMkFbXfE "Now in Android: 55")
 
