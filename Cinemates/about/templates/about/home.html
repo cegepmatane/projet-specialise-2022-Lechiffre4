@@ -23,24 +23,8 @@ Cinemates
     </p>
 
     <h3 class="text-center" style="margin-top: 80px;" >Contact</h3>
-    <form data-bitwarden-watching="1" id ="Contactform">
-        {% csrf_token %}
-      {{ form_key.as_p }}
-        <fieldset>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea required>
-            </div></br>
-            <button type="submit" onclick ="SendMail()" class="btn btn-primary">Submit</button>
-      </form>
+    <p class="text-center" style="margin-top: 20px;">If you have any questions, you can contact me on my email : <a href="mailto:sahelhaouchet@gmail.com" >sahelhaouchet@gmail.com</a>
+    </p>
       <div class ="d-flex justify-content-center">
         <a href="https://www.paypal.com/paypalme/sahelh" target="_blank" class="mx-5""">Donate</a>
         <a href="https://github.com/Lechiffre4" target="_blank">Github</a>
@@ -49,32 +33,6 @@ Cinemates
     
 </div>
 
-<script>
-    $('#Contactform').keypress(function (e) {                                       
-     if (e.which == 13) {
-          e.preventDefault();
-          SendMail()   
-     }
-  });
-
-  function SendMail(){
-    $.ajax({
-      type:'POST',
-      url:"sendMail/",
-      dataType: "html",
-      async: true,
-      data:{
-        name: $("#name").val(),
-        email: $("#email").val(),
-        message: $("#message").val(),
-        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-      },
-      success: function (data) {
-        alert("Your message has been sent");
-      },
-    })
-  }
-</script>
 
 {% endblock %}
 

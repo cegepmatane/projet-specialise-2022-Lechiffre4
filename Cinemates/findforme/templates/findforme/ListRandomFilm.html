@@ -1,6 +1,6 @@
 <div class="d-flex flex-wrap justify-content-around" id="FilmList">
     {% for film,film_link,film_pic in films %}
-        <a href="/film/{{film_link}}" class="text-decoration-none">
+        <a href="/film/{{film_link}}" target="_blank"class="text-decoration-none">
             <div class="card text-white mb-3 cardBackground" style="width: 20rem;">
                 <div class="card-body">
                   <img class="rounded-2" style = "width: 100%; height: 22rem;" src ="{{film_pic}}" >  
